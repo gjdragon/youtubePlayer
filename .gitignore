@@ -1,0 +1,27 @@
+# Ignore everything
+*
+
+# But not these files...
+!*.py
+!.gitignore
+
+# Ensure that all directories and subdirectories are unignored
+!*/
+
+# Explicitly allow .py files in all subdirectories
+!**/*.py
+
+# Ignore unwanted files or directories explicitly
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.bak
+*.swp
+.idea/
+.vscode/
+env/
+venv/
+
+!README.md
+
