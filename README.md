@@ -2,6 +2,9 @@
 
 A lightweight, user-friendly desktop application for playing YouTube videos directly using mpv.
 
+<img width="702" height="536" alt="screenshot" src="https://github.com/user-attachments/assets/b8635b90-e67f-4576-b5e3-4b3633c513b5" />
+
+
 ## Features
 
 - Play YouTube videos in fullscreen
