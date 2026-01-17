@@ -88,18 +88,19 @@ class YouTubePlayerApp(QMainWindow):
         if os.path.exists(config_path):
             config.read(config_path)
             if 'DEFAULT' not in config:
-                config['DEFAULT'] = {}
-            for key, value in default_config.items():
-                if key not in config['DEFAULT']:
-                    config['DEFAULT'][key] = value
+                config['DEFAULT'] = default_config
+            else:
+                # Merge defaults for any missing keys
+                for key, value in default_config.items():
+                    if key not in config['DEFAULT']:
+                        config['DEFAULT'][key] = value
         else:
             config['DEFAULT'] = default_config
             os.makedirs(os.path.dirname(config_path), exist_ok=True)
+            with open(config_path, 'w') as f:
+                config.write(f)
         
-        with open(config_path, 'w') as f:
-            config.write(f)
-        
-        return config['DEFAULT']
+        return dict(config['DEFAULT'])
     
     def save_config(self):
         """Save configuration to file"""
